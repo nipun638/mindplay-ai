@@ -33,6 +33,8 @@ Problem → Data collection → Data exploration → Statistical analysis → Fe
 
 **Development environment:** Windows, VS Code, PowerShell terminal, Python virtual environment (`.venv`)
 
+**Repository:** https://github.com/nipun638/mindplay-ai
+
 **Project location:** `D:\My_Own_Projects\mindplay-ai`
 
 ---
@@ -955,6 +957,59 @@ Result: 360 rows remain, all random-mode. All Stage 3–6 numbers are unchanged;
 - Data provenance: always record who generated the data and under what conditions.
 - Honest reporting means correcting the record, even late.
 - Look for alternative explanations (confounds) before interpreting a pattern.
+
+---
+
+### Step 8.1 — `requirements.txt` and `.gitignore` ✅
+
+**What:**
+- `requirements.txt` pins the exact versions used (streamlit 1.64.0, pandas 3.0.6, numpy 2.5.3, scikit-learn 1.9.1, matplotlib 3.11.2, scipy ≥ 1.11) so others can reproduce the results with `python -m pip install -r requirements.txt`. SciPy is listed explicitly because `scipy.stats` is used directly.
+- `.gitignore` keeps `.venv/`, `__pycache__/`, generated text outputs, data backups and personal notes out of the repository.
+
+**Test:** `pip install -r requirements.txt` → every line "Requirement already satisfied".
+
+**Problem and fix:** The downloaded file was not in the project folder (`No such file or directory`), so it was created directly in VS Code.
+
+---
+
+### Step 8.2 — README ✅
+
+**What:** Wrote `README.md`, the project's front page: research question, key findings table, the four charts, an app screenshot, how it works, limitations, how to run it, project structure, and future work.
+
+**Honesty checks while writing:**
+- Findings are described as one player in two sessions.
+- The multiple-testing statement was checked: with all 10 tests (Bonferroni α = 0.005), the sequential pattern and all Session 2 model results stay significant, but Session 1's Paper preference (p = 0.0068) does not; the README says so.
+- The fast-clicking confound is written as "appear to", because it is inferred from timestamps.
+
+**Screenshots:** Only one app screenshot is used (the adaptive AI explaining a prediction); the charts already show the statistics and model results.
+
+---
+
+### Step 8.3 — Upload to GitHub ✅
+
+**What:** Created the public repository **github.com/nipun638/mindplay-ai** and pushed the project:
+```powershell
+git init
+git add .
+git status          # checked: 19 files, no .venv
+git commit -m "MindPlay AI: first complete version"
+git branch -M main
+git remote add origin https://github.com/nipun638/mindplay-ai.git
+git push -u origin main
+```
+
+**Problems and fixes:**
+
+| Problem | Cause | Fix |
+|---|---|---|
+| Placeholder email set in `git config` | Pasted the example command | Re-ran the command with the real email (it overwrites) |
+| `git init.` not a git command | Typo (extra dot) | Ran `git init` |
+| `images/app_game.png.png` | Windows hides extensions and added `.png` again | `git mv "images/app_game.png.png" "images/app_game.png"` before committing |
+| `LF will be replaced by CRLF` warnings | Windows vs Linux line endings | Harmless; no action needed |
+
+**Learned:**
+- Git basics: init, add, status, commit, branch, remote, push.
+- Always check `git status` before committing.
 
 ---
 
