@@ -1021,9 +1021,9 @@ Wrote a post that uses only real numbers and states the limitations: 360 rounds 
 
 ### Step 8.5 — Data consistency fix ✅
 
-**Problem:** While taking the README screenshots (29 Sep), 24 extra rounds were saved under "Session 2" (3 random + 21 adaptive). The data on GitHub then had 112 random rounds for Session 2, while the README and this log said 109, and the charts had been regenerated from the changed data.
+**Problem:** While taking the README screenshots (29 Sep), 24 extra rounds were saved under "Session 2" (3 random + 21 adaptive). Those 3 extra random rounds would have made Session 2 112 rounds instead of the 109 reported in the README and this log.
 
-**Fix:** `clean_data.py` was rewritten so it can be run any number of times. It keeps only **random-mode rounds from the data-collection day (27 Sep 2026)**, drops everything else, and relabels the sessions. Then `visualize.py` was re-run and the result pushed to GitHub.
+**Fix:** `clean_data.py` was rewritten so it can be run any number of times. It keeps only **random-mode rounds from the data-collection day (27 Sep 2026)**, drops everything else, and relabels the sessions. Then `visualize.py` was re-run and the new `clean_data.py` was pushed to GitHub (29 Sep). `git status` showed `data/rounds.csv` unchanged, confirming the dataset on GitHub was already the clean 360-round version.
 
 **Result:** 360 rows (251 + 109); every number again matches the README (verified by re-running `stats.py` and `evaluate.py` on the repository data).
 
