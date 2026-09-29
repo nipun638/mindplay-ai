@@ -1,0 +1,21 @@
+# Virtual environment (each user creates their own)
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Editor settings
+.vscode/
+
+# Generated text outputs (re-create with: python stats.py > results.txt, etc.)
+results.txt
+model_results.txt
+eval_results.txt
+
+# Data backups (keep them on your computer, not on GitHub)
+data/rounds_backup_before_cleaning.csv
+data/rounds copy.csv
+
+# Personal study notes
+MindPlay_AI_Project_Overview.pdf
