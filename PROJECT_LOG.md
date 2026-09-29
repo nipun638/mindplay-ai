@@ -51,7 +51,7 @@ Problem → Data collection → Data exploration → Statistical analysis → Fe
 | 5 | Model evaluation | ✅ Done |
 | 6 | Visualisation | ✅ Done |
 | 7 | Final Streamlit interface | ✅ Done |
-| 8 | GitHub repository + README + LinkedIn post | 🟡 In progress |
+| 8 | GitHub repository + README + LinkedIn post | ✅ Done |
 
 Legend: ✅ Done · 🟡 In progress · ⬜ Not started
 
@@ -1010,6 +1010,28 @@ git push -u origin main
 **Learned:**
 - Git basics: init, add, status, commit, branch, remote, push.
 - Always check `git status` before committing.
+
+---
+
+### Step 8.4 — LinkedIn post ✅
+
+Wrote a post that uses only real numbers and states the limitations: 360 rounds of the author's own play in two sessions, chi-square tests, Naive Bayes, walk-forward accuracy 57% vs 40% for the best simple baseline (McNemar p = 0.002), and the one-player / fast-clicking limitations.
+
+---
+
+### Step 8.5 — Data consistency fix ✅
+
+**Problem:** While taking the README screenshots (29 Sep), 24 extra rounds were saved under "Session 2" (3 random + 21 adaptive). The data on GitHub then had 112 random rounds for Session 2, while the README and this log said 109, and the charts had been regenerated from the changed data.
+
+**Fix:** `clean_data.py` was rewritten so it can be run any number of times. It keeps only **random-mode rounds from the data-collection day (27 Sep 2026)**, drops everything else, and relabels the sessions. Then `visualize.py` was re-run and the result pushed to GitHub.
+
+**Result:** 360 rows (251 + 109); every number again matches the README (verified by re-running `stats.py` and `evaluate.py` on the repository data).
+
+**Learned:**
+- Using the app for demos can silently add rows to the analysis dataset.
+- Cleaning rules should be reproducible (based on date and mode), not one-off manual edits.
+
+**✅ Stage 8 complete. Project finished.**
 
 ---
 
